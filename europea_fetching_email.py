@@ -251,17 +251,16 @@ my_list=["property_Name","guest_name","number_of_guests","check_in","check_out"]
 
 
 def europea_template_reading(msg_obj):
-    print(msg_obj)
-    print("europea========================================")
+    
     if msg_obj.is_multipart():
-        print("europea========================================2")
+        
         for part in msg_obj.walk():
         # <------ iterate over each email part ----->
-            print("europea========================================3")
+           
             content_type = part.get_content_type()
             
             if content_type == 'text/html' :
-                print("europea========================================4")
+                
                 body = part.get_payload()
                 soup = BeautifulSoup(body, "html.parser")
                 
@@ -284,8 +283,8 @@ def europea_template_reading(msg_obj):
                 # for data in (table_tag[10]).find_all('table')[0].find_all("p") :
                 #     print(data.get_text())
                 json_obj = json.dumps(obj)
-                print(json_obj)
-                # request_url(obj)
+                # print(json_obj)
+                request_url(obj)
 
 def fetching_email_main():
     try:
